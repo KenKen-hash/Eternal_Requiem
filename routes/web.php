@@ -1,24 +1,53 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BurialRecordController;
-use App\Http\Controllers\PlotController;
-use App\Http\Controllers\CleaningRequestController;
-use App\Http\Controllers\PlotTransferController;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/plot-management', function () {
+    return view('plot-management');
+})->name('plot-management');
+
+Route::get('/occupied-plot', function () {
+    return view('occupied-plot');
+})->name('occupied-plot');
+
+Route::get('/available-plot', function () {
+    return view('available-plot');
+})->name('available-plot');
+
+Route::get('/burial-records', function () {
+    return view('burial-records');
+})->name('burial-records');
+
+Route::get('/reports', function () {
+    return view('reports');
+})->name('reports');
+
+Route::get('/settings', function () {
+    return view('settings');
+})->name('settings');
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function() {
-    return view('cemetery.home');
-})->name("home");
+Route::get('/test', function () {
+    return view('layouts.admin');
+});
 
-Route::resource('cleanings', CleaningRequestController::class);
-Route::resource('burials', BurialRecordController::class);
-Route::resource('plots', PlotController::class);
 
-Route::get('transfers', [PlotTransferController::class, 'index'])->name('transfers.index');
-Route::get('transfers/create', [PlotTransferController::class, 'create'])->name('transfers.create');
-Route::post('transfers', [PlotTransferController::class, 'store'])->name('transfers.store');
-Route::get('transfers/{transfer}', [PlotTransferController::class, 'show'])->name('transfers.show');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
