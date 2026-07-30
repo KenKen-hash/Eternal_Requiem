@@ -5,10 +5,10 @@
   <meta charset="UTF-8" />
   <title>Create Product - InApp Inventory Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon_io/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon_io/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon_io/favicon-16x16.png">
-  <link rel="manifest" href="./assets/images/favicon_io/site.webmanifest">
+   <link rel="apple-touch-icon" sizes="180x180" href="{{ asset ('./assets/images/favicon_io/apple-touch-icon.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ asset ('./assets/images/favicon_io/favicon-32x32.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset ('./assets/images/favicon_io/favicon-16x16.png') }}">
+  <link rel="manifest" href="{{ asset ('./assets/images/favicon_io/site.webmanifest') }}">
 </head>
 
 <body>
@@ -48,7 +48,7 @@
             <ul class="list-unstyled p-0 m-0">
               <li class="p-3 border-bottom ">
                 <div class="d-flex gap-3">
-                  <img src="./assets/images/avatar/avatar-1.jpg" alt="" class="avatar avatar-sm rounded-circle" />
+                  <img src="{{ asset ('./assets/images/avatar/avatar-1.jpg') }}" alt="" class="avatar avatar-sm rounded-circle" />
                   <div class="flex-grow-1 small">
                     <p class="mb-0">New order received</p>
                     <p class="mb-1">Order #12345 has been placed</p>
@@ -58,7 +58,7 @@
               </li>
               <li class="p-3 border-bottom ">
                 <div class="d-flex gap-3">
-                  <img src="./assets/images/avatar/avatar-4.jpg" alt="" class="avatar avatar-sm rounded-circle" />
+                  <img src="{{ asset ('./assets/images/avatar/avatar-4.jpg') }}" alt="" class="avatar avatar-sm rounded-circle" />
                   <div class="flex-grow-1 small">
                     <p class="mb-0">New user registered</p>
                     <p class="mb-1">User @john_doe has signed up</p>
@@ -68,7 +68,7 @@
 
               <li class="p-3 border-bottom">
                 <div class="d-flex gap-3">
-                  <img src="./assets/images/avatar/avatar-2.jpg" alt="" class="avatar avatar-sm rounded-circle" />
+                  <img src="{{ asset ('./assets/images/avatar/avatar-2.jpg') }}" alt="" class="avatar avatar-sm rounded-circle" />
                   <div class="flex-grow-1 small">
                     <p class="mb-0">Payment confirmed</p>
                     <p class="mb-1">Payment of $299 has been received</p>
@@ -85,12 +85,12 @@
         <!-- Dropdown -->
         <li class="ms-3 dropdown">
           <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="./assets/images/avatar/avatar-1.jpg" alt="" class="avatar avatar-sm rounded-circle" />
+            <img src="{{ asset ('assets/images/avatar/avatar-1.jpg') }}" alt="" class="avatar avatar-sm rounded-circle" />
           </a>
           <div class="dropdown-menu dropdown-menu-end p-0" style="min-width: 200px;">
             <div>
               <div class="d-flex gap-3 align-items-center border-dashed border-bottom px-3 py-3">
-                <img src="./assets/images/avatar/avatar-1.jpg" alt="" class="avatar avatar-md rounded-circle" />
+                <img src="{{ asset ('./assets/images/avatar/avatar-1.jpg') }}" alt="" class="avatar avatar-md rounded-circle" />
                 <div>
                   <h4 class="mb-0 small">Shrina Tesla</h4>
                   <p class="mb-0  small">@imshrina</p>
@@ -130,24 +130,25 @@
   <!-- SIDEBAR -->
   <aside id="sidebar" class="sidebar">
     <div class="logo-area">
-     <a href="index.html" class="d-inline-flex"><img src="./assets/images/logo-icon.svg" alt="" width="24">
-        <span class="logo-text ms-2"> <img src="./assets/images/logo.svg" alt=""></span>
+     <a href="index.html" class="d-inline-flex"><img src="{{ asset ('./assets/images/logo-icon.svg') }}" alt="" width="24">
+        <span class="logo-text ms-2"> <img src="{{ asset ('./assets/images/logo.svg') }}" alt=""></span>
       </a>
     </div>
+    
     <ul class="nav flex-column">
       <li class="px-4 py-2"><small class="nav-text">Main</small></li>
-      <li><a class="nav-link active" href="index.html"><i class="ti ti-home"></i><span
+      <li><a class="nav-link active" href="{{ route ('dashboard') }}"><i class="ti ti-home"></i><span
             class="nav-text">Dashboard</span></a></li>
-      <li><a class="nav-link" href="inventory.html"><i class="ti ti-box-seam"></i><span
+      <li><a class="nav-link" href="{{ route ('plot-management') }}"><i class="ti ti-box-seam"></i><span
             class="nav-text">Plot Management</span></a></li>
-      <li><a class="nav-link" href="create-product.html"><i class="ti ti-plus"></i><span class="nav-text">
+      <li><a class="nav-link" href="{{ route ('occupied-plot') }}"><i class="ti ti-plus"></i><span class="nav-text">
             Occupied Plot</span></a></li>
-    <li><a class="nav-link" href="reports.html"><i class="ti ti-receipt"></i><span class="nav-text">Available Plot</span></a>
+    <li><a class="nav-link" href="{{ route ('available-plot') }}"><i class="ti ti-receipt"></i><span class="nav-text">Available Plot</span></a>
       </li>
-    <li><a class="nav-link" href="404-error.html"><i class="ti ti-alert-circle"></i><span class="nav-text">Burial Records</span></a>
+    <li><a class="nav-link" href="{{ route ('burial-records') }}"><i class="ti ti-alert-circle"></i><span class="nav-text">Burial Records</span></a>
       </li>
-      <li><a class="nav-link" href="docs.html"><i class="ti ti-file-text"></i><span class="nav-text">Reports</span></a></li>
-      <li><a class="nav-link" href="settings.html"><i class="ti ti-file-text"></i><span class="nav-text">Settings</span></a></li>
+      <li><a class="nav-link" href="{{ route ('reports') }}"><i class="ti ti-file-text"></i><span class="nav-text">Reports</span></a></li>
+      <li><a class="nav-link" href="{{ route ('settings') }}"><i class="ti ti-file-text"></i><span class="nav-text">Settings</span></a></li>
 
 
      
@@ -416,10 +417,10 @@
 </main>
 
   <!-- Bootstrap JS -->
-  <script src="./assets/js/main.js" type="module"></script>
+  <script src="{{ asset ('./assets/js/main.js') }}" type="module"></script>
 
-
+@vite(['resources/js/app.js'])
 
 </body>
-
+  
 </html>
