@@ -96,6 +96,7 @@
         <span class="logo-text ms-2"> <img src="{{ asset ('./assets/images/logo.svg') }}" alt=""></span>
       </a>
     </div>
+    
     <ul class="nav flex-column">
       <li class="px-4 py-2"><small class="nav-text">Main</small></li>
       <li><a class="nav-link active" href="index.html"><i class="ti ti-home"></i><span
